@@ -1,4 +1,18 @@
 #! /usr/bin/env python3
+"""
+Toto je kod, ktery vygeneruje bludiste.
+
+Prvni funkce vygeneruje ctverate pole s hodnotami 0, ktere je pozdeji pouzito
+jako sablona.
+
+Druha funkce nahodile vytvari cestu uvnitr sablony vytvorene predchozi
+funkci. 
+
+Treti funkce ma pouze estetickou funkci. Autorce bylo lito ji smazat.
+
+Posledni funkce zobrazi jednotlive prvky hotoveho bludiste tak, aby
+vypadalo jako opravove bludiste a ne jako hromada cisel.
+"""
 
 import random
 
@@ -12,6 +26,10 @@ def sablona(blud, pocet):
         blud.append([])
         for x in range(pocet):
             blud[-1].append(0)
+
+# Tato funkce vytvori uvnitr listu "blud" pozadovany pocet listu a v kazdem
+# z nich stejny pocetnul. Vznikne sablona pro bludiste o rozmerech
+# pocet x pocet.
 
 
 def labyrint(blud, pocet, kolo):
@@ -83,19 +101,27 @@ def labyrint(blud, pocet, kolo):
                         blud[a - 1][b] = 3
                         return blud
 
+# Tato funkce vytvori cestu bludistem. Ty jsou oznaceny cislicemi 1 a ty,
+# ktere se pouziji pri vytvareni pokracovani cesty, se oznaci cislem 2,
+# aby uz znovy nebyly pouzity. Preferovan je stred strany pro vstup do
+# bludiste. Pomoci funkce random se zamezi tomu, aby se cesty netvorily
+# prvnim moznym smerem, ale nahodile. Return ukonci funkci, pote co se
+# vytvori vystup z bludiste s cislem 3 na druhe strane od vstupu.
 
-def uprava(blud):
-    for x in blud:
-        while 2 in x:
-            for x in blud:
-                for y in x:
-                    a = blud.index(x)
-                    b = x.index(y)
-                    if y == 3:
-                        blud[a][b] = 1
-                    if y == 2:
-                        blud[a][b] = 1
-    print(blud)
+#def uprava(blud):
+#    for x in blud:
+#        while 2 in x:
+#            for x in blud:
+#                for y in x:
+#                    a = blud.index(x)
+#                    b = x.index(y)
+#                    if y == 3:
+#                        blud[a][b] = 1
+#                    if y == 2:
+#                        blud[a][b] = 1
+
+# Tato funkce byla vyrobena, aby spravila esteticky vzhled listu "blud"
+# tim, ze zameni 2 a 3 zpet na 1. Jine vyuziti nema, tak je vypnuta.
 
 
 def zobrazeni(blud, pocet):
@@ -112,8 +138,12 @@ def zobrazeni(blud, pocet):
                 print(" ", end="")
                 kolo = kolo + 1
 
+# Tato funkce zobrazi vsechny nepruchozi body 0 na X a ostatni na mezery,
+# aby vysledek vypadal jako bludiste. Na kazdy radek zobrazi prvky
+# jednotlivych listu z listu "blud".
+
 
 sablona(blud, pocet)
 labyrint(blud, pocet, kolo)
-uprava(blud)
+#uprava(blud)
 zobrazeni(blud, pocet)
