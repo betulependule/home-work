@@ -98,8 +98,9 @@ def labyrint(blud, pocet, kolo):
                         (y == 1 or y == 2) and
                         blud.index(x) == 1
                     ):
-                        blud[a - 1][b] = 3
+                        blud[0][b] = 3
                         return blud
+
 
 # Tato funkce vytvori cestu bludistem. Ty jsou oznaceny cislicemi 1 a ty,
 # ktere se pouziji pri vytvareni pokracovani cesty, se oznaci cislem 2,
@@ -115,10 +116,9 @@ def labyrint(blud, pocet, kolo):
 #                for y in x:
 #                    a = blud.index(x)
 #                    b = x.index(y)
-#                    if y == 3:
+#                    if y == 3 or y == 2:
 #                        blud[a][b] = 1
-#                    if y == 2:
-#                        blud[a][b] = 1
+
 
 # Tato funkce byla vyrobena, aby spravila esteticky vzhled listu "blud"
 # tim, ze zameni 2 a 3 zpet na 1. Jine vyuziti nema, tak je vypnuta.
